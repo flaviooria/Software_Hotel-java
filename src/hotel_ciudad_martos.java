@@ -13,6 +13,7 @@ public class hotel_ciudad_martos {
         int precioindividual = 45;
         int reserva = 0;
         int numeroReservas = 0;
+        boolean salidaSistema = false;
 
 
         //Ingresando al menu
@@ -45,10 +46,12 @@ public class hotel_ciudad_martos {
                 if (reserva == 2) {
                     precioDoble = precioDoble;
                     habitacionesDobles = habitacionesDobles - 1;
+                    numeroReservas++;
                 }
                 else {
                     precioindividual = precioindividual;
                     habitacionesIndividuales = habitacionesIndividuales - 1;
+                    numeroReservas++;
                 }
             }
 
@@ -83,12 +86,16 @@ public class hotel_ciudad_martos {
 
                     opcionAdmin = s.nextLine();
 
+                    if (opcionAdmin.equals("i")) {
+//                        System.out.println("El numero de Ingresos totales son: " + ingresosTotales);
+                        System.out.println("Numero de reservas: " + numeroReservas);
+                    }
 
                     if (opcionAdmin.equals("iii")) {
-                        break;
+                        salidaSistema = true;
                     }
                 }
             }
-        } while (!opcion.equals("x"));
+        } while (!salidaSistema && !opcion.equals("x"));
     }
 }
