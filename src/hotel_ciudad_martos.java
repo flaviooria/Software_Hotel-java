@@ -1,4 +1,3 @@
-import com.sun.security.jgss.GSSUtil;
 
 import java.util.Scanner;
 
@@ -26,6 +25,7 @@ public class hotel_ciudad_martos {
             System.out.println("b. Reservar una habitación");
             System.out.println("c. Realizar el checkout de una habitación");
             System.out.println("d. Menú de Administrador");
+            System.out.println("");
 
             opcion = s.nextLine();
 
@@ -36,6 +36,7 @@ public class hotel_ciudad_martos {
                 System.out.println("\t**Habitaciones disponibles** \n");
                 System.out.println(". Habitaciones dobles hay: " + habitacionesDobles);
                 System.out.println(". Habitaciones individuales hay: " + habitacionesIndividuales);
+                System.out.println("");
             }
 
             // Reservas
@@ -54,6 +55,7 @@ public class hotel_ciudad_martos {
                     numeroReservas++;
                 }
             }
+            System.out.println("");
 
             // Menu Admin
             if (opcion.equals("d")) {
@@ -77,9 +79,10 @@ public class hotel_ciudad_martos {
                         contador++;
                     }
                 } while (contador < 4);
+                System.out.println("");
 
                 if (logeado) {
-                    System.out.println("******* Submenu *******");
+                    System.out.println("******* Menu Administrador *******");
                     System.out.println("i. Consultar los ingresos totales y el número de reservas finalizadas. ");
                     System.out.println("ii. Consultar las monedas restantes para el cambio.");
                     System.out.println("iii. Apagar el software \n");
