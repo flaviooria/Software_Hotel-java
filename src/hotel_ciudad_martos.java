@@ -5,12 +5,12 @@ public class hotel_ciudad_martos {
     public static void main(String[] args) {
         //Declarando variables
         var s = new Scanner(System.in);
+
         String opcion, opcionAdmin, usuario, pass;
         int habitacionesDobles = 8;
         int habitacionesIndividuales = 2;
         int precioDoble = 60;
         int precioindividual = 45;
-        int reserva = 0;
         int numeroReservas = 0;
         boolean salidaSistema = false;
 
@@ -42,14 +42,16 @@ public class hotel_ciudad_martos {
             // Reservas
             if (opcion.equals("b")) {
                 System.out.println("Desea una habitacion doble o individual (1/2)");
-                reserva = Integer.parseInt(s.nextLine());
+                int reserva = Integer.parseInt(s.nextLine());
 
                 if (reserva == 2) {
+                    System.out.println("Reserva satisfactoria");
                     precioDoble = precioDoble;
                     habitacionesDobles = habitacionesDobles - 1;
                     numeroReservas++;
                 }
                 else {
+                    System.out.println("Reserva satisfactoria");
                     precioindividual = precioindividual;
                     habitacionesIndividuales = habitacionesIndividuales - 1;
                     numeroReservas++;
@@ -69,19 +71,21 @@ public class hotel_ciudad_martos {
 
                     System.out.println("Introduce la contraseña");
                     pass = s.nextLine();
+                    System.out.println("");
 
                     if (usuario.equals("flavio") && pass.equals("1234")) {
                         logeado = true;
-                        break;
                     } else {
+
                         System.out.println("Intento número: " + contador + " de 3");
                         System.out.println("Usuario y/o contraseña incorrecta.");
                         contador++;
                     }
-                } while (contador < 4);
+                } while ( !logeado && contador < 4);
                 System.out.println("");
 
                 if (logeado) {
+
                     System.out.println("******* Menu Administrador *******");
                     System.out.println("i. Consultar los ingresos totales y el número de reservas finalizadas. ");
                     System.out.println("ii. Consultar las monedas restantes para el cambio.");
@@ -89,12 +93,23 @@ public class hotel_ciudad_martos {
 
                     opcionAdmin = s.nextLine();
 
+                    // Ingresos y reseravas totales.
                     if (opcionAdmin.equals("i")) {
+
 //                        System.out.println("El numero de Ingresos totales son: " + ingresosTotales);
-                        System.out.println("Numero de reservas: " + numeroReservas);
+                        System.out.println("Número de reservas totales son: " + numeroReservas);
+                        System.out.println("");
                     }
 
+                    //Consultar cambio
+                    if(opcionAdmin.equals("ii")) {
+
+                    }
+
+                    //Apagado del sistema
                     if (opcionAdmin.equals("iii")) {
+
+                        System.out.println("Finalizando Sesión");
                         salidaSistema = true;
                     }
                 }
