@@ -1,8 +1,10 @@
 
-import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class hotel_ciudad_martos {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         //Declarando variables
         var s = new Scanner(System.in);
 
@@ -13,9 +15,29 @@ public class hotel_ciudad_martos {
         int precioindividual = 45;
         int numeroReservas = 0;
         boolean salidaSistema = false;
+        int codigoHabitacion = 0;
 
+        //Instanciamos el objeto Calendar
+        //en fecha obtenemos la fecha y hora del sistema
+        Calendar fecha = new GregorianCalendar();
 
-        //Ingresando al menu
+        //Obtenemos el valor del año, mes, día,
+        //hora, minuto y segundo del sistema
+        //usando el método get y el parámetro correspondiente
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
+        int minuto = fecha.get(Calendar.MINUTE);
+        int segundo = fecha.get(Calendar.SECOND);
+
+        String hoy = dia + "/" + (mes+1) + "/" + año;
+
+        String fechaReserva = "";
+        String fechaSalida = "";
+
+        //Mostramos por pantalla dia/mes/año
+        System.out.println(hoy);
 
         do {
             //Menu de Bienvenida
@@ -25,7 +47,7 @@ public class hotel_ciudad_martos {
             System.out.println("b. Reservar una habitación");
             System.out.println("c. Realizar el checkout de una habitación");
             System.out.println("d. Menú de Administrador");
-            System.out.println("");
+            System.out.println();
 
             opcion = s.nextLine();
 
@@ -36,7 +58,7 @@ public class hotel_ciudad_martos {
                 System.out.println("\t**Habitaciones disponibles** \n");
                 System.out.println(". Habitaciones dobles hay: " + habitacionesDobles);
                 System.out.println(". Habitaciones individuales hay: " + habitacionesIndividuales);
-                System.out.println("");
+                System.out.println();
             }
 
             // Reservas
@@ -46,18 +68,40 @@ public class hotel_ciudad_martos {
 
                 if (reserva == 2) {
                     System.out.println("Reserva satisfactoria");
-                    precioDoble = precioDoble;
                     habitacionesDobles = habitacionesDobles - 1;
                     numeroReservas++;
-                }
-                else {
+                } else {
                     System.out.println("Reserva satisfactoria");
-                    precioindividual = precioindividual;
                     habitacionesIndividuales = habitacionesIndividuales - 1;
                     numeroReservas++;
                 }
+
+                //GENERAMOS EL NUMERO ALEATORIO
+                Random r = new Random();
+                int valorDado = r.nextInt(100)+1;  // Entre 0 y 5, más 1.
+
+                codigoHabitacion = Math.abs(((int)fecha.getTimeInMillis())+valorDado);
+                System.out.println(codigoHabitacion);
+
+                //GUARDAR LA FECHA AUTOMATICAMENTE fechaReserva
             }
-            System.out.println("");
+
+            if (opcion.equals("c")) {
+                System.out.println("\t**Realizar el checkout de una habitación** \n");
+                System.out.println("Indique la fecha de salida");
+
+                fechaSalida = s.nextLine();
+                System.out.println(fechaSalida);
+
+                //COMPROBAR QUE LA FECHA DE SALIDA NO SEA MENOR A LA FECHA DE RESERVA
+
+                //RESTAR LAS FECHAS Y DEVOLVER EL RESULTADO EN DIAS
+                //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
+                //PEDIR NOMBRE COMPLETO DEL CLIENTE
+                //PEDIR DINERO Y COMPROBAR LA VUELTA
+                //GENERAR FACTURA
+            }
+            System.out.println();
 
             // Menu Admin
             if (opcion.equals("d")) {
@@ -71,7 +115,7 @@ public class hotel_ciudad_martos {
 
                     System.out.println("Introduce la contraseña");
                     pass = s.nextLine();
-                    System.out.println("");
+                    System.out.println();
 
                     if (usuario.equals("flavio") && pass.equals("1234")) {
                         logeado = true;
@@ -82,7 +126,7 @@ public class hotel_ciudad_martos {
                         contador++;
                     }
                 } while ( !logeado && contador < 4);
-                System.out.println("");
+                System.out.println();
 
                 if (logeado) {
 
@@ -98,7 +142,7 @@ public class hotel_ciudad_martos {
 
 //                        System.out.println("El numero de Ingresos totales son: " + ingresosTotales);
                         System.out.println("Número de reservas totales son: " + numeroReservas);
-                        System.out.println("");
+                        System.out.println();
                     }
 
                     //Consultar cambio
