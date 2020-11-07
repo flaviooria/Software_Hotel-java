@@ -1,43 +1,22 @@
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
+import static java.lang.Integer.parseInt;
 
 public class hotel_ciudad_martos {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
         //Declarando variables
         var s = new Scanner(System.in);
 
         String opcion, opcionAdmin, usuario, pass;
         int habitacionesDobles = 8;
         int habitacionesIndividuales = 2;
-        int precioDoble = 60;
-        int precioindividual = 45;
+        int precioDoble = 60, precioindividual = 45;
         int numeroReservas = 0;
         boolean salidaSistema = false;
         int codigoHabitacion = 0;
-
-        //Instanciamos el objeto Calendar
-        //en fecha obtenemos la fecha y hora del sistema
-        Calendar fecha = new GregorianCalendar();
-
-        //Obtenemos el valor del año, mes, día,
-        //hora, minuto y segundo del sistema
-        //usando el método get y el parámetro correspondiente
-        int año = fecha.get(Calendar.YEAR);
-        int mes = fecha.get(Calendar.MONTH);
-        int dia = fecha.get(Calendar.DAY_OF_MONTH);
-        int hora = fecha.get(Calendar.HOUR_OF_DAY);
-        int minuto = fecha.get(Calendar.MINUTE);
-        int segundo = fecha.get(Calendar.SECOND);
-
-        String hoy = dia + "/" + (mes+1) + "/" + año;
-
-        String fechaReserva = "";
-        String fechaSalida = "";
-
-        //Mostramos por pantalla dia/mes/año
-        System.out.println(hoy);
+        String fechaReserva;
+        int precioTotal = 0;
+        int dia, mes, anio, diferenciaFechas = 0;
 
         do {
             //Menu de Bienvenida
@@ -52,7 +31,6 @@ public class hotel_ciudad_martos {
             opcion = s.nextLine();
 
             // Eligiendo opciones.
-
             // Estado
             if (opcion.equals("a")) {
                 System.out.println("\t**Habitaciones disponibles** \n");
@@ -68,96 +46,131 @@ public class hotel_ciudad_martos {
 
                 if (reserva == 2) {
                     System.out.println("Reserva satisfactoria");
-                    habitacionesDobles = habitacionesDobles - 1;
+                    habitacionesDobles -= 1;
                     numeroReservas++;
                 } else {
                     System.out.println("Reserva satisfactoria");
-                    habitacionesIndividuales = habitacionesIndividuales - 1;
+                    habitacionesIndividuales -= 1;
                     numeroReservas++;
                 }
 
-                //GENERAMOS EL NUMERO ALEATORIO
-                Random r = new Random();
-                int valorDado = r.nextInt(100)+1;  // Entre 0 y 5, más 1.
+                //GENERAMOS UN NUMERO DE HABITACION
 
-                codigoHabitacion = Math.abs(((int)fecha.getTimeInMillis())+valorDado);
-                System.out.println(codigoHabitacion);
 
                 //GUARDAR LA FECHA AUTOMATICAMENTE fechaReserva
+                /* Instanciamos el objeto Calendar
+                   Obtenemos el valor del año, mes, día,
+                   usando el método get y el parámetro correspondiente*/
+
+                Calendar fechaHoy = new GregorianCalendar();
+                int anioActual = fechaHoy.get(Calendar.YEAR);
+                int mesActual = fechaHoy.get(Calendar.MONTH);
+                int diaActual = fechaHoy.get(Calendar.DAY_OF_MONTH);
+
+                String hoy = diaActual + "/" + (mesActual + 1) + "/" + anioActual;
+                //Mostramos por pantalla dia/mes/año
+                fechaReserva = hoy;
+                System.out.println(fechaReserva);
             }
 
             if (opcion.equals("c")) {
-                System.out.println("\t**Realizar el checkout de una habitación** \n");
-                System.out.println("Indique la fecha de salida");
 
-                fechaSalida = s.nextLine();
-                System.out.println(fechaSalida);
+                //Realizando el checkout
+                System.out.println("\t**Realizar el checkout de una habitación**");
+                System.out.println("\tIndique la fecha de salida:");
+                System.out.print("Ingresa el día ");
+                dia = Integer.parseInt(s.nextLine());
+                System.out.print("Ingresa el mes ");
+                mes = Integer.parseInt(s.nextLine());
+                System.out.print("Ingresa el año ");
+                anio = Integer.parseInt(s.nextLine());
+
+                Calendar fechaSalida = new GregorianCalendar();
+                fechaSalida.set(anio, mes - 1, dia);
+                fechaSalida.set(Calendar.HOUR, 0);
+                fechaSalida.set(Calendar.HOUR_OF_DAY, 0);
+                fechaSalida.set(Calendar.MINUTE, 0);
+                fechaSalida.set(Calendar.SECOND, 0);
+
+                Calendar fechaActual = new GregorianCalendar();
+                fechaActual.set(Calendar.HOUR, 0);
+                fechaActual.set(Calendar.HOUR_OF_DAY, 0);
+                fechaActual.set(Calendar.MINUTE, 0);
+                fechaActual.set(Calendar.SECOND, 0);
+
+                long actual = fechaActual.getTimeInMillis();
+                long salida = fechaSalida.getTimeInMillis();
 
                 //COMPROBAR QUE LA FECHA DE SALIDA NO SEA MENOR A LA FECHA DE RESERVA
+                if (fechaSalida.after(fechaActual)) {
+                    //RESTAR LAS FECHAS Y DEVOLVER EL RESULTADO EN DIAS
+                    diferenciaFechas = (int) ((Math.abs(salida - actual)) / (1000 * 60 * 60 * 24));
+                    System.out.println(diferenciaFechas);
+                } else {
+                    System.out.println("Fecha incorrecta");
+                }
 
-                //RESTAR LAS FECHAS Y DEVOLVER EL RESULTADO EN DIAS
                 //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
                 //PEDIR NOMBRE COMPLETO DEL CLIENTE
                 //PEDIR DINERO Y COMPROBAR LA VUELTA
                 //GENERAR FACTURA
             }
-            System.out.println();
 
-            // Menu Admin
-            if (opcion.equals("d")) {
-                int contador = 1;
-                boolean logeado = false;
+                // Menu Admin
+                if (opcion.equals("d")) {
+                    int contador = 1;
+                    boolean logeado = false;
 
-                //Login de Admin
-                do {
-                    System.out.println("Introduce el usuario");
-                    usuario = s.nextLine();
+                    //Login de Admin
+                    do {
+                        System.out.println("Introduce el usuario");
+                        usuario = s.nextLine();
 
-                    System.out.println("Introduce la contraseña");
-                    pass = s.nextLine();
+                        System.out.println("Introduce la contraseña");
+                        pass = s.nextLine();
+                        System.out.println();
+
+                        if (usuario.equals("flavio") && pass.equals("1234")) {
+                            logeado = true;
+                        } else {
+
+                            System.out.println("Intento número: " + contador + " de 3");
+                            System.out.println("Usuario y/o contraseña incorrecta.");
+                            contador++;
+                        }
+                    } while (!logeado && contador < 4);
                     System.out.println();
 
-                    if (usuario.equals("flavio") && pass.equals("1234")) {
-                        logeado = true;
-                    } else {
+                    if (logeado) {
 
-                        System.out.println("Intento número: " + contador + " de 3");
-                        System.out.println("Usuario y/o contraseña incorrecta.");
-                        contador++;
-                    }
-                } while ( !logeado && contador < 4);
-                System.out.println();
+                        System.out.println("******* Menu Administrador *******");
+                        System.out.println("i. Consultar los ingresos totales y el número de reservas finalizadas. ");
+                        System.out.println("ii. Consultar las monedas restantes para el cambio.");
+                        System.out.println("iii. Apagar el software \n");
 
-                if (logeado) {
+                        opcionAdmin = s.nextLine();
 
-                    System.out.println("******* Menu Administrador *******");
-                    System.out.println("i. Consultar los ingresos totales y el número de reservas finalizadas. ");
-                    System.out.println("ii. Consultar las monedas restantes para el cambio.");
-                    System.out.println("iii. Apagar el software \n");
-
-                    opcionAdmin = s.nextLine();
-
-                    // Ingresos y reseravas totales.
-                    if (opcionAdmin.equals("i")) {
+                        // Ingresos y reseravas totales.
+                        if (opcionAdmin.equals("i")) {
 
 //                        System.out.println("El numero de Ingresos totales son: " + ingresosTotales);
-                        System.out.println("Número de reservas totales son: " + numeroReservas);
-                        System.out.println();
-                    }
+                            System.out.println("Número de reservas totales son: " + numeroReservas);
+                            System.out.println();
+                        }
 
-                    //Consultar cambio
-                    if(opcionAdmin.equals("ii")) {
+                        //Consultar cambio
+                        if (opcionAdmin.equals("ii")) {
 
-                    }
+                        }
 
-                    //Apagado del sistema
-                    if (opcionAdmin.equals("iii")) {
+                        //Apagado del sistema
+                        if (opcionAdmin.equals("iii")) {
 
-                        System.out.println("Finalizando Sesión");
-                        salidaSistema = true;
+                            System.out.println("Finalizando Sesión");
+                            salidaSistema = true;
+                        }
                     }
                 }
-            }
-        } while (!salidaSistema && !opcion.equals("x"));
+        } while (!salidaSistema && !opcion.equals("x")) ;
     }
 }
