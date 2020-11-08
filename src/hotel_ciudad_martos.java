@@ -1,13 +1,15 @@
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+
 import static java.lang.Integer.parseInt;
 
 public class hotel_ciudad_martos {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //Declarando variables
         var s = new Scanner(System.in);
 
-        String opcion, opcionAdmin, usuario, pass,nombreCliente,fechaReserva = "";
+        String opcion, opcionAdmin, usuario, pass, nombreCliente, fechaReserva = "";
         int habitacionesDobles = 8, habitacionesIndividuales = 2;
         int precioDoble = 60, precioindividual = 45;
         int numeroReservas = 0, reserva = 0;
@@ -15,7 +17,7 @@ public class hotel_ciudad_martos {
         int codigoHabitacion = 0;
         int pagoTotal,precioHabitacion, pagoCliente;
         int dia, mes, anio, diferenciaFechas = 0;
-        int total = 0;
+        int total,ingresoTotal = 0;
 
         do {
             //Menu de Bienvenida
@@ -28,6 +30,8 @@ public class hotel_ciudad_martos {
             System.out.println();
 
             opcion = s.nextLine();
+            Thread.sleep(1000);
+            System.out.println();
 
             // Eligiendo opciones.
             // Estado
@@ -136,6 +140,7 @@ public class hotel_ciudad_martos {
                     System.out.printf("|\tIVA:\t\t\t%13d|\n",total);
                     System.out.printf("|\ttotal:\t\t\t%13d|\n",total);
                     System.out.println("|================================|");
+                    ingresoTotal += total;
                 } else {
                     total = (int) ( precioHabitacion  * 0.79);
                     System.out.printf("|\tTarifa:\t\t\t %12d|\n", precioindividual);
@@ -144,6 +149,7 @@ public class hotel_ciudad_martos {
                     System.out.printf("|\tIVA:\t\t\t%13d|\n",total);
                     System.out.printf("|\ttotal:\t\t\t%13d|\n",total);
                     System.out.println("|================================|");
+                    ingresoTotal += total;
                 }
                 System.out.println("Pulsa una tecla para continuar . . . ");
                 s.nextLine();
@@ -157,12 +163,16 @@ public class hotel_ciudad_martos {
 
                     //Login de Admin
                     do {
+                        System.out.print("Espere un momento\n");
+                        Thread.sleep(1500);
+                        System.out.println();
                         System.out.println("Introduce el usuario");
                         usuario = s.nextLine();
 
                         System.out.println("Introduce la contraseña");
                         pass = s.nextLine();
                         System.out.println();
+                        Thread.sleep(1500);
 
                         if (usuario.equals("flavio") && pass.equals("1234")) {
                             logeado = true;
@@ -177,30 +187,51 @@ public class hotel_ciudad_martos {
 
                     if (logeado) {
 
-                        System.out.println("******* Menu Administrador *******");
+                        System.out.print("Cargando ");
+                        for (int i = 0; i < 3; i++) {
+                            System.out.print(".");
+                            TimeUnit.SECONDS.sleep(1);
+                        }
+
+                        System.out.println();
+                        System.out.println();
+                        System.out.println("\t\t\t******* Menu Administrador *******");
                         System.out.println("1. Consultar los ingresos totales y el número de reservas finalizadas. ");
                         System.out.println("2. Consultar las monedas restantes para el cambio.");
                         System.out.println("3. Apagar el software \n");
+                        System.out.println();
 
                         opcionAdmin = s.nextLine();
 
                         // Ingresos y reseravas totales.
                         if (opcionAdmin.equals("1")) {
 
-//                        System.out.println("El numero de Ingresos totales son: " + ingresosTotales);
+                            System.out.println("El numero de Ingresos totales son: " + ingresoTotal);
                             System.out.println("Número de reservas totales son: " + numeroReservas);
-                            System.out.println();
+                            System.out.println("Pulsa una tecla para continuar");
+                            s.nextLine();
                         }
 
                         //Consultar cambio
                         if (opcionAdmin.equals("2")) {
-
+                          /*  System.out.println("Cambio en billetes de 100 es: " +  billetes100);
+                            System.out.println("Cambio en billetes de 50 es: " +  billetes50);
+                            System.out.println("Cambio en billetes de 20 es: " +  billete20);
+                            System.out.println("Cambio en billetes de 10 es: " +  billete10);
+                            System.out.println("Cambio en billetes de 5 es: " +  monedas5);
+                            System.out.println("Cambio en billetes de 1 es: " +  monedas1);*/
+                            System.out.println("Pulsa una tecla para continuar");
+                            s.nextLine();
                         }
 
                         //Apagado del sistema
                         if (opcionAdmin.equals("3")) {
 
-                            System.out.println("Finalizando Sesión");
+                            System.out.print("Apagando ");
+                            for (int i = 0; i < 3; i++) {
+                                System.out.print(".");
+                                TimeUnit.SECONDS.sleep(1);
+                            }
                             salidaSistema = true;
                         }
                     }

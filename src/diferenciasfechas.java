@@ -96,12 +96,12 @@ public class diferenciasfechas {
         monedas1 = pago / 1;
         pago = pago - (monedas1 * 1);
 
-        if (billetes100 > 0) System.out.println("te tengo que dar de 100 en: " +  billetes100);
-        if (billetes50 > 0) System.out.println("te tengo que dar de 50 en: " +  billetes50);
-        if (billete20 > 0) System.out.println("te tengo que dar de 20 en: " +  billete20);
-        if (billete10 > 0) System.out.println("te tengo que dar de 10 en: " +  billete10);
-        if (monedas5 > 0) System.out.println("te tengo que dar de 5 en: " +  monedas5);
-        if (monedas1 > 0) System.out.println("te tengo que dar de 1 en: " +  monedas1);
+            if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " +  billetes100);
+            if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " +  billetes50);
+            if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " +  billete20);
+            if (billete10 > 0) System.out.println("Cambio en billetes de 10 es: " +  billete10);
+            if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " +  monedas5);
+            if (monedas1 > 0) System.out.println("Cambio en billetes de 1 es: " +  monedas1);
 
     }
 }
