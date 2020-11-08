@@ -7,16 +7,15 @@ public class hotel_ciudad_martos {
         //Declarando variables
         var s = new Scanner(System.in);
 
-        String opcion, opcionAdmin, usuario, pass;
-        int habitacionesDobles = 8;
-        int habitacionesIndividuales = 2;
+        String opcion, opcionAdmin, usuario, pass,nombreCliente,fechaReserva = "";
+        int habitacionesDobles = 8, habitacionesIndividuales = 2;
         int precioDoble = 60, precioindividual = 45;
-        int numeroReservas = 0;
+        int numeroReservas = 0, reserva = 0;
         boolean salidaSistema = false;
         int codigoHabitacion = 0;
-        String fechaReserva;
-        int precioTotal = 0;
+        int pagoTotal,precioHabitacion, pagoCliente;
         int dia, mes, anio, diferenciaFechas = 0;
+        int total = 0;
 
         do {
             //Menu de Bienvenida
@@ -42,7 +41,7 @@ public class hotel_ciudad_martos {
             // Reservas
             if (opcion.equals("b")) {
                 System.out.println("Desea una habitacion doble o individual (1/2)");
-                int reserva = Integer.parseInt(s.nextLine());
+                reserva = Integer.parseInt(s.nextLine());
 
                 if (reserva == 2) {
                     System.out.println("Reserva satisfactoria");
@@ -53,9 +52,6 @@ public class hotel_ciudad_martos {
                     habitacionesIndividuales -= 1;
                     numeroReservas++;
                 }
-
-                //GENERAMOS UN NUMERO DE HABITACION
-
 
                 //GUARDAR LA FECHA AUTOMATICAMENTE fechaReserva
                 /* Instanciamos el objeto Calendar
@@ -70,7 +66,9 @@ public class hotel_ciudad_martos {
                 String hoy = diaActual + "/" + (mesActual + 1) + "/" + anioActual;
                 //Mostramos por pantalla dia/mes/año
                 fechaReserva = hoy;
-                System.out.println(fechaReserva);
+
+                //GENERAMOS UN NUMERO DE HABITACION
+
             }
 
             if (opcion.equals("c")) {
@@ -111,9 +109,45 @@ public class hotel_ciudad_martos {
                 }
 
                 //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
+                precioHabitacion = ((reserva == 2) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
+                System.out.println(precioHabitacion);
                 //PEDIR NOMBRE COMPLETO DEL CLIENTE
+                System.out.println("Indique su nombre completo, por favor");
+                nombreCliente = s.nextLine();
                 //PEDIR DINERO Y COMPROBAR LA VUELTA
+
                 //GENERAR FACTURA
+                System.out.println("|================================|");
+                System.out.println("|\t\t\tFactura              |");
+                System.out.println("|================================|");
+                System.out.printf("|\tDescripción\t\t %12s|\n",nombreCliente);
+                System.out.println("|\tConfirmación\t\t\t");
+                System.out.println("|\tEntrada\t\t\t\t" + fechaReserva + "|");
+                System.out.println("|\tSalida\t\t\t   " + dia + "/" + mes + "/" + anio + "|");
+                System.out.printf("|\tPax:\t\t\t %12d|\n",reserva);
+                System.out.printf("|\tNoches:\t\t\t %12d|\n",diferenciaFechas);
+                System.out.println("|================================|");
+                // comprobando si el numero de reserva es doble o individual de ese modo el precio varia
+                if (reserva == 2) {
+                    total = (int) ( precioHabitacion  * 0.79);
+                    System.out.printf("|\tTarifa:\t\t\t %12d|\n", precioDoble);
+                    System.out.printf("|\tMonto:\t\t\t%13d|\n",total);
+                    System.out.printf("|\tsubtotal:\t\t\t%9d|\n",total);
+                    System.out.printf("|\tIVA:\t\t\t%13d|\n",total);
+                    System.out.printf("|\ttotal:\t\t\t%13d|\n",total);
+                    System.out.println("|================================|");
+                } else {
+                    total = (int) ( precioHabitacion  * 0.79);
+                    System.out.printf("|\tTarifa:\t\t\t %12d|\n", precioindividual);
+                    System.out.printf("|\tMonto:\t\t\t%13d|\n",total);
+                    System.out.printf("|\tsubtotal:\t\t\t%9d|\n",total);
+                    System.out.printf("|\tIVA:\t\t\t%13d|\n",total);
+                    System.out.printf("|\ttotal:\t\t\t%13d|\n",total);
+                    System.out.println("|================================|");
+                }
+                System.out.println("Pulsa una tecla para continuar . . . ");
+                s.nextLine();
+
             }
 
                 // Menu Admin
@@ -144,14 +178,14 @@ public class hotel_ciudad_martos {
                     if (logeado) {
 
                         System.out.println("******* Menu Administrador *******");
-                        System.out.println("i. Consultar los ingresos totales y el número de reservas finalizadas. ");
-                        System.out.println("ii. Consultar las monedas restantes para el cambio.");
-                        System.out.println("iii. Apagar el software \n");
+                        System.out.println("1. Consultar los ingresos totales y el número de reservas finalizadas. ");
+                        System.out.println("2. Consultar las monedas restantes para el cambio.");
+                        System.out.println("3. Apagar el software \n");
 
                         opcionAdmin = s.nextLine();
 
                         // Ingresos y reseravas totales.
-                        if (opcionAdmin.equals("i")) {
+                        if (opcionAdmin.equals("1")) {
 
 //                        System.out.println("El numero de Ingresos totales son: " + ingresosTotales);
                             System.out.println("Número de reservas totales son: " + numeroReservas);
@@ -159,12 +193,12 @@ public class hotel_ciudad_martos {
                         }
 
                         //Consultar cambio
-                        if (opcionAdmin.equals("ii")) {
+                        if (opcionAdmin.equals("2")) {
 
                         }
 
                         //Apagado del sistema
-                        if (opcionAdmin.equals("iii")) {
+                        if (opcionAdmin.equals("3")) {
 
                             System.out.println("Finalizando Sesión");
                             salidaSistema = true;
