@@ -1,4 +1,5 @@
 
+import java.sql.Time;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +8,7 @@ public class hotel_ciudad_martos {
         //Declarando variables
         var s = new Scanner(System.in);
 
-        String opcion, opcionAdmin, usuario, pass, nombreCliente, fechaReserva = "";
+        String opcion, opcionAdmin, usuario, pass, nombreCliente = "", fechaReserva = "";
         int habitacionesDobles = 8, habitacionesIndividuales = 2;
         int precioDoble = 60, precioindividual = 45;
         int numeroReservas = 0, reserva = 0;
@@ -18,8 +19,10 @@ public class hotel_ciudad_martos {
         int subTotal, total, ingresoTotal = 0, pago;
         int de100 = 20, de50 = 20, de20 = 20, de10 = 20, de5 = 20, de2 = 20, de1 = 20;
         boolean paseB = false;
-        String codigoHabitacion1 = " ",codigoHabitacion2 = " ",codigoHabitacion3,codigoHabitacion4,codigoHabitacion5,codigoHabitacion6,codigoHabitacion7,codigoHabitacion8,codigoHabitacion9,codigoHabitacion10;
-        boolean re1 = false, re2= false, re3 = false, re4= false, re5 = false, re6 = false, re7 =  false, re8 = false, re9 = false, re10 = false;
+        String codigoHabitacion1 = " ", codigoHabitacion2 = " ", codigoHabitacion3 = " ", codigoHabitacion4 = "", codigoHabitacion5 = "" , codigoHabitacion6 = "", codigoHabitacion7 = "", codigoHabitacion8 = "",codigoHabitacion9 = "", codigoHabitacion10 = "";
+        boolean reserva1 = false, reserva2= false, reserva3 = false, reserva4= false, reserva5 = false, reserva6 = false, reserva7 =  false, reserva8 = false, reserva9 = false, reserva10 = false;
+        String codigoFinal = "";
+        int contadorDobles = 0, contadorIndividual = 0;
 
         do {
             //Menu de Bienvenida
@@ -46,7 +49,7 @@ public class hotel_ciudad_martos {
             // Reservas
             if (opcion.equals("b")) {
                 do {
-                    System.out.println("Desea una habitacion doble o individual (1/2)");
+                    System.out.println("Desea una habitacion doble (2) o individual (1)");
                     reserva = Integer.parseInt(s.nextLine());
                     if (reserva > 2 || reserva == 0) {
                         Thread.sleep(500);
@@ -69,22 +72,70 @@ public class hotel_ciudad_martos {
                     System.out.println();
                     habitacionesDobles -= 1;
                     numeroReservas++;
+
                     //GENERAMOS UN NUMERO DE HABITACION
-                    if (codigoHabitacion2 == " ") {
-                        codigoHabitacion2 = String.valueOf(reserva)  + String.valueOf(fechaHoy.get(Calendar.YEAR)) + String.valueOf(fechaHoy.get(Calendar.MONTH)) + String.valueOf(fechaHoy.get(Calendar.DAY_OF_MONTH)) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                        re1 = true;
-                    }
-                    System.out.println(codigoHabitacion2);
+                    do {
+                        if (reserva1 == false) {
+                            codigoHabitacion1 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva1 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion1);
+                        } else if (reserva2 == false) {
+                            codigoHabitacion2 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva2 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion2);
+                            codigoHabitacion3 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva3 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion3);
+                        } else if (reserva4 == false) {
+                            codigoHabitacion4 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva4 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion4);
+                        } else if (reserva5 == false) {
+                            codigoHabitacion5 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva5 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion5);
+                        } else if (reserva6 == false) {
+                            codigoHabitacion6 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva6 = true;
+                            System.out.println("Sú codigo es: " +codigoHabitacion6);
+                        } else if  (reserva7 == false) {
+                            codigoHabitacion7 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva7 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion7);
+                        } else if (reserva8 == false) {
+                            codigoHabitacion8 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva8 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion8);
+                        } else {
+                            System.out.println("Acutalmente no contamos con habitaciones disponibles ");
+                        }
+                        contadorDobles++;
+                    } while (contadorDobles > 8);
+
                 } else {
                     System.out.println("Reserva satisfactoria");
                     System.out.println();
                     habitacionesIndividuales -= 1;
                     numeroReservas++;
-                    codigoHabitacion1 = String.valueOf(reserva)  + String.valueOf(fechaHoy.get(Calendar.YEAR)) + String.valueOf(fechaHoy.get(Calendar.MONTH)) + String.valueOf(fechaHoy.get(Calendar.DAY_OF_MONTH)) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                    System.out.println(codigoHabitacion1);
+
+                    //GENERAMOS UN NUMERO DE HABITACION
+                    do {
+                        if (reserva9 == false) {
+                            codigoHabitacion9 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva9 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion9);
+                        } else if (reserva10 == false) {
+                            codigoHabitacion10 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                            reserva10 = true;
+                            System.out.println("Sú codigo es: " + codigoHabitacion10);
+                        } else {
+                            System.out.println("Acutalmente no contamos con habitaciones disponibles ");
+                        }
+                        contadorIndividual++;
+                    } while (contadorIndividual > 2);
                 }
 
-                //GUARDAR LA FECHA AUTOMATICAMENTE fechaReserva
+                //GUARDAR LA FECHA AUTOMATICAMENTE
                 /* Instanciamos el objeto Calendar
                    Obtenemos el valor del año, mes, día,
                    usando el método get y el parámetro correspondiente*/
@@ -95,18 +146,67 @@ public class hotel_ciudad_martos {
 
                 //Mostramos por pantalla dia/mes/año
                 fechaReserva = diaActual + "/" + (mesActual + 1) + "/" + anioActual;
+                System.out.println("Fecha de reserva: " + fechaReserva);
+                System.out.println();
                 paseB = true;
             }
 
             if (opcion.equals("c")) {
                 if (paseB) {
                     boolean mesOk = false, diaOk = false;
+                    String codigoIntroducido ="";
                     //Realizando el checkout
                     System.out.println("\t**Realizar el checkout de una habitación**");
-                    System.out.println("Indique su codigo de habitación");
-                    s.nextLine();
+                    do {
+                        System.out.println("Indique su codigo de habitación");
+                        codigoIntroducido = s.nextLine();
+                    if (Integer.parseInt(codigoIntroducido) < 999999) {
+                            System.out.println("Parametro incorrecto, introducir codigo correcto");
+                        }
+                    } while (Integer.parseInt(codigoIntroducido) < 999999 || codigoIntroducido.isEmpty());
 
                     //comprobando si el numero de reserva es igual a la reserva
+                    if (codigoIntroducido.equals(codigoHabitacion1)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva1 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion2)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva2 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion3)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva3 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion4)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva4 = false;
+                    } else if (codigoFinal.equals(codigoHabitacion5)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva5 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion6)){
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva6 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion7)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva7 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion8)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva8 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion9)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva9 = false;
+                    } else if (codigoIntroducido.equals(codigoHabitacion10)) {
+                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        reserva10 = false;
+                    } else {
+                        System.out.println("Codigo no identificado");
+                    }
+                    System.out.println();
+
+                    System.out.print("Comprobando codigo ");
+                    for (int i = 0; i < 3; i++) {
+                        System.out.print(".");
+                        TimeUnit.SECONDS.sleep(1);
+                    }
+                    System.out.println();
 
                     do {
                         System.out.println("\tIndique la fecha de salida:");
@@ -116,6 +216,7 @@ public class hotel_ciudad_martos {
                         mes = Integer.parseInt(s.nextLine());
                         System.out.print("Ingresa el año ");
                         anio = Integer.parseInt(s.nextLine());
+
                         //comprobando si el dia y el mes son correctos.
                         if (dia > 31) {
                             System.out.println("Parametro incorrecto");
@@ -150,175 +251,289 @@ public class hotel_ciudad_martos {
                     if (fechaSalida.after(fechaActual)) {
                         //RESTAR LAS FECHAS Y DEVOLVER EL RESULTADO EN DIAS
                         diferenciaFechas = (int) ((Math.abs(salida - actual)) / (1000 * 60 * 60 * 24));
-                        System.out.println(diferenciaFechas);
+                        System.out.println("Han transcurrido " + diferenciaFechas + " dias");
                     } else {
                         System.out.println("Fecha incorrecta");
                     }
 
                     //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
-                    precioHabitacion = ((reserva == 2) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
+                    precioHabitacion = ((codigoFinal.equals("2") ) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
+                    System.out.println("Precio por dias ocupados: " + precioHabitacion);
+                    System.out.println();
 
-                    //PEDIR NOMBRE COMPLETO DEL CLIENTEç
-                    do {
-                        System.out.println("Indique su nombre completo, por favor");
-                        nombreCliente = s.nextLine();
-                        if (nombreCliente.isEmpty()) {
-                            System.out.println("Parametro incorrecto");
+                    //PEDIR SI DESEA FACTURA
+                    System.out.println("Desea factura Si/No");
+                    String obtenerFactura = s.nextLine();
+                    String si = "si";
+                    if (obtenerFactura.equalsIgnoreCase(si)) {
+                        //PEDIR NOMBRE COMPLETO DEL CLIENTE
+                        do {
+                            System.out.println("Indique su nombre completo, por favor");
+                            nombreCliente = s.nextLine();
+                            if (nombreCliente.isEmpty()) {
+                                System.out.println("Parametro incorrecto");
+                            }
+                        } while (nombreCliente.isEmpty());
+
+
+                        System.out.print("Generando factura ");
+                        for (int i = 0; i < 3; i++) {
+                            System.out.print(".");
+                            TimeUnit.SECONDS.sleep(1);
                         }
-                    } while (nombreCliente.isEmpty());
+                        System.out.println();
 
-
-                    System.out.print("Generando factura ");
-                    for (int i = 0; i < 3; i++) {
-                        System.out.print(".");
-                        TimeUnit.SECONDS.sleep(1);
-                    }
-                    System.out.println();
-
-                    //GENERAR FACTURA
-                    System.out.println("|==================================|");
-                    System.out.println("|\t\t\t  Factura              |");
-                    System.out.println("|==================================|");
-                    System.out.printf("|\tDescripción\t\t %12s  |\n", nombreCliente);
-                    System.out.println("|\tConfirmación\t\t\t" + codigoHabitacion1 + "  |");
-                    System.out.println("|\tEntrada\t\t\t\t" + fechaReserva + "  |");
-                    System.out.println("|\tSalida\t\t\t   " + dia + "/" + mes + "/" + anio + "  |");
-                    System.out.printf("|\tPax:\t\t\t %12d  |\n", reserva);
-                    System.out.printf("|\tNoches:\t\t\t %12d  |\n", diferenciaFechas);
-                    System.out.println("|==================================|");
-                    // comprobando si el numero de reserva es doble o individual de ese modo el precio varia
-                    if (reserva == 2) {
-                        total = precioHabitacion;
-                        monto = (float) (precioHabitacion * 0.79);
-                        iva = (float) (precioHabitacion * 0.21);
-                        subTotal = total;
-                        System.out.printf("|\tTarifa:\t\t\t %12d  |\n", precioDoble);
-                        System.out.printf("|\tMonto:\t\t\t%13.2f  |\n", monto);
-                        System.out.printf("|\tSubtotal:\t\t\t%9d  |\n", subTotal);
-                        System.out.printf("|\tIVA:\t\t\t%13.2f  |\n", iva);
-                        System.out.printf("|\tTotal:\t\t\t%13d  |\n", total);
+                        //GENERAR FACTURA
                         System.out.println("|==================================|");
-                        habitacionesDobles++;
-                        ingresoTotal += total;
+                        System.out.println("|                Factura              |");
+                        System.out.println("|==================================|");
+                        System.out.printf("|    Descripción         %12s  |\n", nombreCliente);
+                        System.out.println("|    Confirmación            " + codigoIntroducido + "  |");
+                        System.out.println("|    Entrada                " + fechaReserva + "  |");
+                        System.out.println("|    Salida               " + dia + "/" + mes + "/" + anio + "  |");
+                        System.out.printf("|    Pax:             %12d  |\n", reserva);
+                        System.out.printf("|    Noches:             %12d  |\n", diferenciaFechas);
+                        System.out.println("|==================================|");
+                        // comprobando si el numero de reserva es doble o individual de ese modo el precio varia
+                        if (reserva == 2) {
+                            total = precioHabitacion;
+                            monto = (float) (precioHabitacion * 0.79);
+                            iva = (float) (precioHabitacion * 0.21);
+                            subTotal = total;
+                            System.out.printf("|\tTarifa:\t\t\t %12d  |\n", precioDoble);
+                            System.out.printf("|\tMonto:\t\t\t%13.2f  |\n", monto);
+                            System.out.printf("|\tSubtotal:\t\t\t%9d  |\n", subTotal);
+                            System.out.printf("|\tIVA:\t\t\t%13.2f  |\n", iva);
+                            System.out.printf("|\tTotal:\t\t\t%13d  |\n", total);
+                            System.out.println("|==================================|");
+                            habitacionesDobles++;
+                            ingresoTotal += total;
+                        } else {
+                            total = precioHabitacion;
+                            monto = (float) (precioHabitacion * 0.79);
+                            iva = (float) (precioHabitacion * 0.21);
+                            subTotal = total;
+                            System.out.printf("|\tTarifa:\t\t\t %12d|\n", precioindividual);
+                            System.out.printf("|\tMonto:\t\t\t%13.2f|\n", monto);
+                            System.out.printf("|\tsubtotal:\t\t\t%9d|\n", subTotal);
+                            System.out.printf("|\tIVA:\t\t\t%13.2f|\n", iva);
+                            System.out.printf("|\ttotal:\t\t\t%13d|\n", total);
+                            System.out.println("|================================|");
+                            habitacionesIndividuales++;
+                            ingresoTotal += total;
+                        }
+                        System.out.println();
+
+                        //PEDIR DINERO Y COMPROBAR LA VUELTA
+                        do {
+                            System.out.println("Ingresa la cantidad con la cual va a pagar: ");
+                            pagoCliente = Integer.parseInt(s.nextLine());
+                            if (pagoCliente < 0 || String.valueOf(pagoCliente ).isEmpty() )
+                                System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
+                        } while (pagoCliente < 0);
+
+                        pago = pagoCliente - precioHabitacion;
+                        cambio = pago;
+
+                        int billetes100, billetes50, billete20, billete10, monedas5, monedas2, monedas1;
+                        int resultado100, resultado50, resultado20, resultado10, resultado5, resultado2, resultado1;
+
+                        billetes100 = pago / 100;
+                        if (billetes100 <= de100) {
+                            pago = pago - (billetes100 * 100);
+                            resultado100 = billetes100;
+                            de100 -= billetes100;
+                        } else {
+                            pago = pago - (de100 * 100);
+                            resultado100 = de100;
+                            de100 = 0;
+                        }
+
+                        billetes50 = pago / 50;
+                        if (billetes50 <= de50) {
+                            pago = pago - (billetes50 * 50);
+                            resultado50 = billetes50;
+                            de50 -= billetes50;
+                        } else {
+                            pago = pago - (de50 * 50);
+                            resultado50 = de50;
+                            de50 = 0;
+                        }
+
+
+                        billete20 = pago / 20;
+                        if (billete20 <= de20) {
+                            pago = pago - (billete20 * 20);
+                            resultado20 = billete20;
+                            de20 -= billete20;
+                        } else {
+                            pago = pago - (de20 * 20);
+                            resultado20 = de20;
+                            de20 = 0;
+                        }
+
+
+                        billete10 = pago / 10;
+                        if (billete10 <= de10) {
+                            pago = pago - (billete10 * 10);
+                            resultado10 = billete10;
+                            de10 -= billete10;
+                        } else {
+                            pago = pago - (de10 * 10);
+                            resultado10 = de10;
+                            de10 = 0;
+                        }
+
+                        monedas5 = pago / 5;
+                        if (monedas5 <= de5) {
+                            pago = pago - (monedas5 * 5);
+                            resultado5 = monedas5;
+                            de5 -= monedas5;
+                        } else {
+                            pago = pago - (de5 * 5);
+                            resultado5 = de5;
+                            de5 = 0;
+                        }
+
+                        monedas2 = pago / 2;
+                        if (monedas2 <= de2) {
+                            pago = pago - (monedas2 * 2);
+                            resultado2 = monedas2;
+                            de2 -= monedas2;
+                        } else {
+                            pago = pago - (de2 * 2);
+                            resultado2 = de2;
+                            de2 = 0;
+                        }
+
+                        monedas1 = pago;
+                        if (monedas1 <= de1) {
+                            pago = pago - (monedas1);
+                            resultado1 = monedas1;
+                            de1 -= monedas1;
+                        } else {
+                            pago = pago - (de1);
+                            resultado1 = de1;
+                            de1 = 0;
+                        }
+
+                        System.out.println("Tu cambio es de: " + cambio);
+                        if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
+                        if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
+                        if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " + resultado20);
+                        if (billete10 > 0) System.out.println("Cambio en billetes de 10 es: " + resultado10);
+                        if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " + resultado5);
+                        if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
+                        if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
+                        System.out.println("Pulsa una tecla para continuar . . . ");
+                        s.nextLine();
                     } else {
-                        total = precioHabitacion;
-                        monto = (float) (precioHabitacion * 0.79);
-                        iva = (float) (precioHabitacion * 0.21);
-                        subTotal = total;
-                        System.out.printf("|\tTarifa:\t\t\t %12d|\n", precioindividual);
-                        System.out.printf("|\tMonto:\t\t\t%13.2f|\n", monto);
-                        System.out.printf("|\tsubtotal:\t\t\t%9d|\n", subTotal);
-                        System.out.printf("|\tIVA:\t\t\t%13.2f|\n", iva);
-                        System.out.printf("|\ttotal:\t\t\t%13d|\n", total);
-                        System.out.println("|================================|");
-                        habitacionesIndividuales++;
-                        ingresoTotal += total;
-                    }
-                    System.out.println();
+                        //PEDIR DINERO Y COMPROBAR LA VUELTA
+                        do {
+                            System.out.println("Ingresa la cantidad con la cual va a pagar: ");
+                            pagoCliente = Integer.parseInt(s.nextLine());
+                            if (pagoCliente < 0 || String.valueOf(pagoCliente ).isEmpty() )
+                                System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
+                        } while (pagoCliente < 0);
 
-                    //PEDIR DINERO Y COMPROBAR LA VUELTA
-                    do {
-                        System.out.println("Ingresa la cantidad con la cual va a pagar: ");
-                        pagoCliente = Integer.parseInt(s.nextLine());
-                        if (pagoCliente < 0 || String.valueOf(pagoCliente ).isEmpty() )
-                            System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
-                    } while (pagoCliente < 0);
+                        pago = pagoCliente - precioHabitacion;
+                        cambio = pago;
 
-                    pago = pagoCliente - precioHabitacion;
-                    cambio = pago;
+                        int billetes100, billetes50, billete20, billete10, monedas5, monedas2, monedas1;
+                        int resultado100, resultado50, resultado20, resultado10, resultado5, resultado2, resultado1;
 
-                    int billetes100, billetes50, billete20, billete10, monedas5, monedas2, monedas1;
-                    int resultado100, resultado50, resultado20, resultado10, resultado5, resultado2, resultado1;
+                        billetes100 = pago / 100;
+                        if (billetes100 <= de100) {
+                            pago = pago - (billetes100 * 100);
+                            resultado100 = billetes100;
+                            de100 -= billetes100;
+                        } else {
+                            pago = pago - (de100 * 100);
+                            resultado100 = de100;
+                            de100 = 0;
+                        }
 
-                    billetes100 = pago / 100;
-                    if (billetes100 <= de100) {
-                        pago = pago - (billetes100 * 100);
-                        resultado100 = billetes100;
-                        de100 -= billetes100;
-                    } else {
-                        pago = pago - (de100 * 100);
-                        resultado100 = de100;
-                        de100 = 0;
-                    }
-
-                    billetes50 = pago / 50;
-                    if (billetes50 <= de50) {
-                        pago = pago - (billetes50 * 50);
-                        resultado50 = billetes50;
-                        de50 -= billetes50;
-                    } else {
-                        pago = pago - (de50 * 50);
-                        resultado50 = de50;
-                        de50 = 0;
-                    }
+                        billetes50 = pago / 50;
+                        if (billetes50 <= de50) {
+                            pago = pago - (billetes50 * 50);
+                            resultado50 = billetes50;
+                            de50 -= billetes50;
+                        } else {
+                            pago = pago - (de50 * 50);
+                            resultado50 = de50;
+                            de50 = 0;
+                        }
 
 
-                    billete20 = pago / 20;
-                    if (billete20 <= de20) {
-                        pago = pago - (billete20 * 20);
-                        resultado20 = billete20;
-                        de20 -= billete20;
-                    } else {
-                        pago = pago - (de20 * 20);
-                        resultado20 = de20;
-                        de20 = 0;
-                    }
+                        billete20 = pago / 20;
+                        if (billete20 <= de20) {
+                            pago = pago - (billete20 * 20);
+                            resultado20 = billete20;
+                            de20 -= billete20;
+                        } else {
+                            pago = pago - (de20 * 20);
+                            resultado20 = de20;
+                            de20 = 0;
+                        }
 
 
-                    billete10 = pago / 10;
-                    if (billete10 <= de10) {
-                        pago = pago - (billete10 * 10);
-                        resultado10 = billete10;
-                        de10 -= billete10;
-                    } else {
-                        pago = pago - (de10 * 10);
-                        resultado10 = de10;
-                        de10 = 0;
-                    }
+                        billete10 = pago / 10;
+                        if (billete10 <= de10) {
+                            pago = pago - (billete10 * 10);
+                            resultado10 = billete10;
+                            de10 -= billete10;
+                        } else {
+                            pago = pago - (de10 * 10);
+                            resultado10 = de10;
+                            de10 = 0;
+                        }
 
-                    monedas5 = pago / 5;
-                    if (monedas5 <= de5) {
-                        pago = pago - (monedas5 * 5);
-                        resultado5 = monedas5;
-                        de5 -= monedas5;
-                    } else {
-                        pago = pago - (de5 * 5);
-                        resultado5 = de5;
-                        de5 = 0;
-                    }
+                        monedas5 = pago / 5;
+                        if (monedas5 <= de5) {
+                            pago = pago - (monedas5 * 5);
+                            resultado5 = monedas5;
+                            de5 -= monedas5;
+                        } else {
+                            pago = pago - (de5 * 5);
+                            resultado5 = de5;
+                            de5 = 0;
+                        }
 
-                    monedas2 = pago / 2;
-                    if (monedas2 <= de2) {
-                        pago = pago - (monedas2 * 2);
-                        resultado2 = monedas2;
-                        de2 -= monedas2;
-                    } else {
-                        pago = pago - (de2 * 2);
-                        resultado2 = de2;
-                        de2 = 0;
-                    }
+                        monedas2 = pago / 2;
+                        if (monedas2 <= de2) {
+                            pago = pago - (monedas2 * 2);
+                            resultado2 = monedas2;
+                            de2 -= monedas2;
+                        } else {
+                            pago = pago - (de2 * 2);
+                            resultado2 = de2;
+                            de2 = 0;
+                        }
 
-                    monedas1 = pago;
-                    if (monedas1 <= de1) {
-                        pago = pago - (monedas1);
-                        resultado1 = monedas1;
-                        de1 -= monedas1;
-                    } else {
-                        pago = pago - (de1);
-                        resultado1 = de1;
-                        de1 = 0;
+                        monedas1 = pago;
+                        if (monedas1 <= de1) {
+                            pago = pago - (monedas1);
+                            resultado1 = monedas1;
+                            de1 -= monedas1;
+                        } else {
+                            pago = pago - (de1);
+                            resultado1 = de1;
+                            de1 = 0;
+                        }
+
+                        System.out.println("Tu cambio es de: " + cambio);
+                        if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
+                        if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
+                        if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " + resultado20);
+                        if (billete10 > 0) System.out.println("Cambio en billetes de 10 es: " + resultado10);
+                        if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " + resultado5);
+                        if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
+                        if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
+                        System.out.println("Pulsa una tecla para continuar . . . ");
+                        s.nextLine();
                     }
 
-                    System.out.println("Tu cambio es de: " + cambio);
-                    if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
-                    if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
-                    if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " + resultado20);
-                    if (billete10 > 0) System.out.println("Cambio en billetes de 10 es: " + resultado10);
-                    if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " + resultado5);
-                    if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
-                    if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
-                    System.out.println("Pulsa una tecla para continuar . . . ");
-                    s.nextLine();
+
                 } else {
                     Thread.sleep(1000);
                     System.out.println("Acceso denegado, debe de realizar la opción b");
