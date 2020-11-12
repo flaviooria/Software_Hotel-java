@@ -195,7 +195,7 @@ public class hotel_ciudad_martos {
                     do {
                         System.out.println("Indique su codigo de habitación");
                         codigoIntroducido = s.nextLine();
-                    } while (Integer.parseInt(codigoIntroducido) < 9999 || Integer.parseInt(codigoIntroducido) > 999999);
+                    } while (Integer.parseInt(codigoIntroducido) < 9999 || Integer.parseInt(codigoIntroducido) > 9999999);
 
                     //comprobando si el numero de reserva es igual a la reserva
                     if (codigoIntroducido.equals(codigoHabitacion1)) {
