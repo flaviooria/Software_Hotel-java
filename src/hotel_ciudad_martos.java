@@ -1,5 +1,5 @@
 
-import java.sql.Time;
+
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -19,10 +19,9 @@ public class hotel_ciudad_martos {
         int subTotal, total, ingresoTotal = 0, pago;
         int de100 = 20, de50 = 20, de20 = 20, de10 = 20, de5 = 20, de2 = 20, de1 = 20;
         boolean paseB = false;
-        String codigoHabitacion1 = " ", codigoHabitacion2 = " ", codigoHabitacion3 = " ", codigoHabitacion4 = "", codigoHabitacion5 = "" , codigoHabitacion6 = "", codigoHabitacion7 = "", codigoHabitacion8 = "",codigoHabitacion9 = "", codigoHabitacion10 = "";
-        boolean reserva1 = false, reserva2= false, reserva3 = false, reserva4= false, reserva5 = false, reserva6 = false, reserva7 =  false, reserva8 = false, reserva9 = false, reserva10 = false;
+        String codigoHabitacion1 = " ", codigoHabitacion2 = " ", codigoHabitacion3 = " ", codigoHabitacion4 = "", codigoHabitacion5 = "", codigoHabitacion6 = "", codigoHabitacion7 = "", codigoHabitacion8 = "", codigoHabitacion9 = "", codigoHabitacion10 = "";
+        boolean reserva1 = false, reserva2 = false, reserva3 = false, reserva4 = false, reserva5 = false, reserva6 = false, reserva7 = false, reserva8 = false, reserva9 = false, reserva10 = false;
         String codigoFinal = "";
-        int contadorDobles = 0, contadorIndividual = 0;
 
         do {
             //Menu de Bienvenida
@@ -66,75 +65,6 @@ public class hotel_ciudad_martos {
                 System.out.println();
 
                 Calendar fechaHoy = new GregorianCalendar();
-
-                if (reserva == 2) {
-                    System.out.println("Reserva satisfactoria");
-                    System.out.println();
-                    habitacionesDobles -= 1;
-                    numeroReservas++;
-
-                    //GENERAMOS UN NUMERO DE HABITACION
-                    do {
-                        if (reserva1 == false) {
-                            codigoHabitacion1 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva1 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion1);
-                        } else if (reserva2 == false) {
-                            codigoHabitacion2 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva2 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion2);
-                            codigoHabitacion3 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva3 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion3);
-                        } else if (reserva4 == false) {
-                            codigoHabitacion4 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva4 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion4);
-                        } else if (reserva5 == false) {
-                            codigoHabitacion5 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva5 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion5);
-                        } else if (reserva6 == false) {
-                            codigoHabitacion6 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva6 = true;
-                            System.out.println("Sú codigo es: " +codigoHabitacion6);
-                        } else if  (reserva7 == false) {
-                            codigoHabitacion7 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva7 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion7);
-                        } else if (reserva8 == false) {
-                            codigoHabitacion8 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva8 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion8);
-                        } else {
-                            System.out.println("Acutalmente no contamos con habitaciones disponibles ");
-                        }
-                        contadorDobles++;
-                    } while (contadorDobles > 8);
-
-                } else {
-                    System.out.println("Reserva satisfactoria");
-                    System.out.println();
-                    habitacionesIndividuales -= 1;
-                    numeroReservas++;
-
-                    //GENERAMOS UN NUMERO DE HABITACION
-                    do {
-                        if (reserva9 == false) {
-                            codigoHabitacion9 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) +  String.valueOf(fechaHoy.get(Calendar.MINUTE))+ String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva9 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion9);
-                        } else if (reserva10 == false) {
-                            codigoHabitacion10 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
-                            reserva10 = true;
-                            System.out.println("Sú codigo es: " + codigoHabitacion10);
-                        } else {
-                            System.out.println("Acutalmente no contamos con habitaciones disponibles ");
-                        }
-                        contadorIndividual++;
-                    } while (contadorIndividual > 2);
-                }
-
                 //GUARDAR LA FECHA AUTOMATICAMENTE
                 /* Instanciamos el objeto Calendar
                    Obtenemos el valor del año, mes, día,
@@ -144,9 +74,114 @@ public class hotel_ciudad_martos {
                 int mesActual = fechaHoy.get(Calendar.MONTH);
                 int diaActual = fechaHoy.get(Calendar.DAY_OF_MONTH);
 
-                //Mostramos por pantalla dia/mes/año
+                //Guardamo la fecha actual en la variable fecha
                 fechaReserva = diaActual + "/" + (mesActual + 1) + "/" + anioActual;
-                System.out.println("Fecha de reserva: " + fechaReserva);
+
+                if (reserva == 2) {
+                    System.out.println();
+                    //GENERAMOS UN NUMERO DE HABITACION
+
+                    if (reserva1 == false) {
+                        codigoHabitacion1 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva1 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion1);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva2 == false) {
+                        codigoHabitacion2 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva2 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion2);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva3 == false) {
+                        codigoHabitacion3 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva3 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion3);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva4 == false) {
+                        codigoHabitacion4 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva4 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion4);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva5 == false) {
+                        codigoHabitacion5 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva5 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion5);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva6 == false) {
+                        codigoHabitacion6 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva6 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion6);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva7 == false) {
+                        codigoHabitacion7 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva7 = true;
+                        System.out.println("Sú codigo es: " + codigoHabitacion7);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else if (reserva8 == false) {
+                        codigoHabitacion8 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva8 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion8);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesDobles--;
+                        numeroReservas++;
+
+                    } else {
+                        System.out.println("Acutalmente no contamos con habitaciones dobles, intente con habitaciones dobles o seleccione la opción (a),  del menú");
+                    }
+
+                } else {
+                    System.out.println();
+
+                    //GENERAMOS UN NUMERO DE HABITACION
+                    if (reserva9 == false) {
+                        codigoHabitacion9 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva9 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion9);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesIndividuales--;
+                        numeroReservas++;
+                    } else if (reserva10 == false) {
+                        codigoHabitacion10 = String.valueOf(reserva) + String.valueOf(fechaHoy.get(Calendar.HOUR)) + String.valueOf(fechaHoy.get(Calendar.MINUTE)) + String.valueOf(fechaHoy.get(Calendar.SECOND));
+                        reserva10 = true;
+                        System.out.println("Reserva satisfactoria");
+                        System.out.println("Sú codigo es: " + codigoHabitacion10);
+                        System.out.println("Fecha de reserva: " + fechaReserva);
+                        habitacionesIndividuales--;
+                        numeroReservas++;
+                    } else {
+                        System.out.println("Acutalmente no contamos con habitaciones individuales, intente con habitaciones dobles o seleecione la opción (a), del menú");
+                    }
+
+                }
+
                 System.out.println();
                 paseB = true;
             }
@@ -154,48 +189,55 @@ public class hotel_ciudad_martos {
             if (opcion.equals("c")) {
                 if (paseB) {
                     boolean mesOk = false, diaOk = false;
-                    String codigoIntroducido ="";
+                    String codigoIntroducido = "";
                     //Realizando el checkout
                     System.out.println("\t**Realizar el checkout de una habitación**");
                     do {
                         System.out.println("Indique su codigo de habitación");
                         codigoIntroducido = s.nextLine();
-                    if (Integer.parseInt(codigoIntroducido) < 999999) {
-                            System.out.println("Parametro incorrecto, introducir codigo correcto");
-                        }
-                    } while (Integer.parseInt(codigoIntroducido) < 999999 || codigoIntroducido.isEmpty());
+                    } while (Integer.parseInt(codigoIntroducido) < 9999 || Integer.parseInt(codigoIntroducido) > 999999);
 
                     //comprobando si el numero de reserva es igual a la reserva
                     if (codigoIntroducido.equals(codigoHabitacion1)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva1 = false;
+                        habitacionesDobles++;
                     } else if (codigoIntroducido.equals(codigoHabitacion2)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva2 = false;
+                        habitacionesDobles++;
                     } else if (codigoIntroducido.equals(codigoHabitacion3)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva3 = false;
+                        habitacionesDobles++;
                     } else if (codigoIntroducido.equals(codigoHabitacion4)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva4 = false;
-                    } else if (codigoFinal.equals(codigoHabitacion5)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        habitacionesDobles++;
+                    } else if (codigoIntroducido.equals(codigoHabitacion5)) {
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva5 = false;
-                    } else if (codigoIntroducido.equals(codigoHabitacion6)){
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        habitacionesDobles++;
+                    } else if (codigoIntroducido.equals(codigoHabitacion6)) {
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva6 = false;
+                        habitacionesDobles++;
                     } else if (codigoIntroducido.equals(codigoHabitacion7)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva7 = false;
+                        habitacionesDobles++;
                     } else if (codigoIntroducido.equals(codigoHabitacion8)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva8 = false;
+                        habitacionesDobles++;
                     } else if (codigoIntroducido.equals(codigoHabitacion9)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva9 = false;
+                        habitacionesIndividuales++;
                     } else if (codigoIntroducido.equals(codigoHabitacion10)) {
-                        codigoFinal = codigoIntroducido.substring(0,1);;
+                        codigoFinal = codigoIntroducido.substring(0, 1);
                         reserva10 = false;
+                        habitacionesIndividuales++;
                     } else {
                         System.out.println("Codigo no identificado");
                     }
@@ -208,56 +250,57 @@ public class hotel_ciudad_martos {
                     }
                     System.out.println();
 
+                    Calendar fechaSalida;
+                    Calendar fechaActual;
                     do {
-                        System.out.println("\tIndique la fecha de salida:");
-                        System.out.print("Ingresa el día ");
-                        dia = Integer.parseInt(s.nextLine());
-                        System.out.print("Ingresa el mes ");
-                        mes = Integer.parseInt(s.nextLine());
-                        System.out.print("Ingresa el año ");
-                        anio = Integer.parseInt(s.nextLine());
+                        do {
+                            System.out.println("\tIndique la fecha de salida:");
+                            System.out.print("Ingresa el día ");
+                            dia = Integer.parseInt(s.nextLine());
+                            System.out.print("Ingresa el mes ");
+                            mes = Integer.parseInt(s.nextLine());
+                            System.out.print("Ingresa el año ");
+                            anio = Integer.parseInt(s.nextLine());
 
-                        //comprobando si el dia y el mes son correctos.
-                        if (dia > 31) {
-                            System.out.println("Parametro incorrecto");
+                            //comprobando si el dia y el mes son correctos.
+                            if (dia > 31 || mes > 12 || mes == 0) {
+                                System.out.println("Parametro incorrecto, coloca el día y el mes correcto");
+                            } else {
+                                diaOk = true;
+                                mesOk = true;
+                            }
+
+                        } while (!mesOk || !diaOk);
+
+                        fechaSalida = new GregorianCalendar();
+                        fechaSalida.set(anio, mes - 1, dia + 1);
+                        fechaSalida.set(Calendar.HOUR, 0);
+                        fechaSalida.set(Calendar.HOUR_OF_DAY, 0);
+                        fechaSalida.set(Calendar.MINUTE, 0);
+                        fechaSalida.set(Calendar.SECOND, 0);
+
+                        fechaActual = new GregorianCalendar();
+                        fechaActual.set(Calendar.HOUR, 0);
+                        fechaActual.set(Calendar.HOUR_OF_DAY, 0);
+                        fechaActual.set(Calendar.MINUTE, 0);
+                        fechaActual.set(Calendar.SECOND, 0);
+
+                        long actual = fechaActual.getTimeInMillis();
+                        long salida = fechaSalida.getTimeInMillis();
+
+                        //COMPROBAR QUE LA FECHA DE SALIDA NO SEA MENOR A LA FECHA DE RESERVA
+                        if (fechaSalida.after(fechaActual)) {
+                            //RESTAR LAS FECHAS Y DEVOLVER EL RESULTADO EN DIAS
+                            diferenciaFechas = (int) ((Math.abs(salida - actual)) / (1000 * 60 * 60 * 24));
+                            System.out.println("Han transcurrido " + diferenciaFechas + " dias");
                         } else {
-                            diaOk = true;
+                            System.out.println("Fecha incorrecta");
                         }
+                    } while (fechaSalida.before(fechaActual));
 
-                        if (mes > 12 || mes == 0 ) {
-                            System.out.println("Parametro incorrecto");
-                        } else {
-                            mesOk = true;
-                        }
-                    } while (!mesOk  || !diaOk );
-
-                    Calendar fechaSalida = new GregorianCalendar();
-                    fechaSalida.set(anio, mes - 1, dia + 1);
-                    fechaSalida.set(Calendar.HOUR, 0);
-                    fechaSalida.set(Calendar.HOUR_OF_DAY, 0);
-                    fechaSalida.set(Calendar.MINUTE, 0);
-                    fechaSalida.set(Calendar.SECOND, 0);
-
-                    Calendar fechaActual = new GregorianCalendar();
-                    fechaActual.set(Calendar.HOUR, 0);
-                    fechaActual.set(Calendar.HOUR_OF_DAY, 0);
-                    fechaActual.set(Calendar.MINUTE, 0);
-                    fechaActual.set(Calendar.SECOND, 0);
-
-                    long actual = fechaActual.getTimeInMillis();
-                    long salida = fechaSalida.getTimeInMillis();
-
-                    //COMPROBAR QUE LA FECHA DE SALIDA NO SEA MENOR A LA FECHA DE RESERVA
-                    if (fechaSalida.after(fechaActual)) {
-                        //RESTAR LAS FECHAS Y DEVOLVER EL RESULTADO EN DIAS
-                        diferenciaFechas = (int) ((Math.abs(salida - actual)) / (1000 * 60 * 60 * 24));
-                        System.out.println("Han transcurrido " + diferenciaFechas + " dias");
-                    } else {
-                        System.out.println("Fecha incorrecta");
-                    }
 
                     //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
-                    precioHabitacion = ((codigoFinal.equals("2") ) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
+                    precioHabitacion = ((codigoFinal.equals("2")) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
                     System.out.println("Precio por dias ocupados: " + precioHabitacion);
                     System.out.println();
 
@@ -265,6 +308,7 @@ public class hotel_ciudad_martos {
                     System.out.println("Desea factura Si/No");
                     String obtenerFactura = s.nextLine();
                     String si = "si";
+
                     if (obtenerFactura.equalsIgnoreCase(si)) {
                         //PEDIR NOMBRE COMPLETO DEL CLIENTE
                         do {
@@ -275,7 +319,6 @@ public class hotel_ciudad_martos {
                             }
                         } while (nombreCliente.isEmpty());
 
-
                         System.out.print("Generando factura ");
                         for (int i = 0; i < 3; i++) {
                             System.out.print(".");
@@ -284,42 +327,40 @@ public class hotel_ciudad_martos {
                         System.out.println();
 
                         //GENERAR FACTURA
-                        System.out.println("|==================================|");
-                        System.out.println("|                Factura              |");
-                        System.out.println("|==================================|");
-                        System.out.printf("|    Descripción         %12s  |\n", nombreCliente);
-                        System.out.println("|    Confirmación            " + codigoIntroducido + "  |");
-                        System.out.println("|    Entrada                " + fechaReserva + "  |");
-                        System.out.println("|    Salida               " + dia + "/" + mes + "/" + anio + "  |");
-                        System.out.printf("|    Pax:             %12d  |\n", reserva);
-                        System.out.printf("|    Noches:             %12d  |\n", diferenciaFechas);
-                        System.out.println("|==================================|");
+                        System.out.println("|============================================|");
+                        System.out.println("|                  Factura                   |");
+                        System.out.println("|============================================|");
+                        System.out.printf("|    Descripción         %18s  |\n", nombreCliente);
+                        System.out.printf("|    Confirmación        %17s   |\n",codigoIntroducido);
+                        System.out.println("|    Entrada                     " + fechaReserva + "  |");
+                        System.out.println("|    Salida                      " + dia + "/" + mes + "/" + anio + "  |");
+                        System.out.printf("|    Pax:             %21d  |\n", reserva);
+                        System.out.printf("|    Noches:             %18d  |\n", diferenciaFechas);
+                        System.out.println("|============================================|");
                         // comprobando si el numero de reserva es doble o individual de ese modo el precio varia
                         if (reserva == 2) {
                             total = precioHabitacion;
                             monto = (float) (precioHabitacion * 0.79);
                             iva = (float) (precioHabitacion * 0.21);
                             subTotal = total;
-                            System.out.printf("|\tTarifa:\t\t\t %12d  |\n", precioDoble);
-                            System.out.printf("|\tMonto:\t\t\t%13.2f  |\n", monto);
-                            System.out.printf("|\tSubtotal:\t\t\t%9d  |\n", subTotal);
-                            System.out.printf("|\tIVA:\t\t\t%13.2f  |\n", iva);
-                            System.out.printf("|\tTotal:\t\t\t%13d  |\n", total);
-                            System.out.println("|==================================|");
-                            habitacionesDobles++;
+                            System.out.printf("|    Tarifa:             %18d  |\n", precioDoble);
+                            System.out.printf("|    Monto:            %20.2f  |\n", monto);
+                            System.out.printf("|    Subtotal:            %17d  |\n", subTotal);
+                            System.out.printf("|    IVA:              %20.2f  |\n", iva);
+                            System.out.printf("|    Total:              %18d  |\n", total);
+                            System.out.println("|============================================|");
                             ingresoTotal += total;
                         } else {
                             total = precioHabitacion;
                             monto = (float) (precioHabitacion * 0.79);
                             iva = (float) (precioHabitacion * 0.21);
                             subTotal = total;
-                            System.out.printf("|\tTarifa:\t\t\t %12d|\n", precioindividual);
-                            System.out.printf("|\tMonto:\t\t\t%13.2f|\n", monto);
-                            System.out.printf("|\tsubtotal:\t\t\t%9d|\n", subTotal);
-                            System.out.printf("|\tIVA:\t\t\t%13.2f|\n", iva);
-                            System.out.printf("|\ttotal:\t\t\t%13d|\n", total);
-                            System.out.println("|================================|");
-                            habitacionesIndividuales++;
+                            System.out.printf("|    Tarifa:             %18d  |\n", precioindividual);
+                            System.out.printf("|    Monto:            %20.2f  |\n", monto);
+                            System.out.printf("|    Subtotal:            %17d  |\n", subTotal);
+                            System.out.printf("|    IVA:              %20.2f  |\n", iva);
+                            System.out.printf("|    Total:              %18d  |\n", total);
+                            System.out.println("|============================================|");
                             ingresoTotal += total;
                         }
                         System.out.println();
@@ -328,9 +369,9 @@ public class hotel_ciudad_martos {
                         do {
                             System.out.println("Ingresa la cantidad con la cual va a pagar: ");
                             pagoCliente = Integer.parseInt(s.nextLine());
-                            if (pagoCliente < 0 || String.valueOf(pagoCliente ).isEmpty() )
+                            if (pagoCliente < 0 )
                                 System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
-                        } while (pagoCliente < 0);
+                        } while (pagoCliente < 0 );
 
                         pago = pagoCliente - precioHabitacion;
                         cambio = pago;
@@ -432,9 +473,9 @@ public class hotel_ciudad_martos {
                         do {
                             System.out.println("Ingresa la cantidad con la cual va a pagar: ");
                             pagoCliente = Integer.parseInt(s.nextLine());
-                            if (pagoCliente < 0 || String.valueOf(pagoCliente ).isEmpty() )
+                            if (pagoCliente < 0 )
                                 System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
-                        } while (pagoCliente < 0);
+                        } while (pagoCliente < 0 );
 
                         pago = pagoCliente - precioHabitacion;
                         cambio = pago;
@@ -521,6 +562,8 @@ public class hotel_ciudad_martos {
                             de1 = 0;
                         }
 
+                        ingresoTotal += precioHabitacion;
+
                         System.out.println("Tu cambio es de: " + cambio);
                         if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
                         if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
@@ -532,7 +575,6 @@ public class hotel_ciudad_martos {
                         System.out.println("Pulsa una tecla para continuar . . . ");
                         s.nextLine();
                     }
-
 
                 } else {
                     Thread.sleep(1000);
@@ -589,7 +631,8 @@ public class hotel_ciudad_martos {
 
                         opcionAdmin = s.nextLine();
 
-                        if(opcionAdmin.equals("1") || opcionAdmin.equals("2") || opcionAdmin.equals("3")) paseAdmi = true;
+                        if (opcionAdmin.equals("1") || opcionAdmin.equals("2") || opcionAdmin.equals("3"))
+                            paseAdmi = true;
                         else System.out.println("Indica las opciones que se encuentran en el menú");
                     } while (!paseAdmi);
 

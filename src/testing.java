@@ -73,7 +73,7 @@ public class testing {
             }
         }*/
 
-        boolean mesOk = false, anioOk = false, diaOk = false;
+       /* boolean mesOk = false, anioOk = false, diaOk = false;
         do {
             try {
                 if (!mesOk) {
@@ -93,7 +93,7 @@ public class testing {
             } catch (Exception e) {
                 System.out.printf("Parametro introducido incorrecto, por favor introduzca ....");
             }
-        }while(!mesOk && !anioOk && !diaOk);
+        }while(!mesOk && !anioOk && !diaOk);*/
 
         /*//cambio de  billetes y monedas
         System.out.println("Indica el pago");
@@ -178,5 +178,11 @@ public class testing {
             if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " +  resultado2);
             if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " +  resultado1);*/
 
+        String codigoIntroducido = "";
+
+        do {
+            System.out.println("Indique su codigo de habitación");
+            codigoIntroducido = s.nextLine();
+        } while (Integer.parseInt(codigoIntroducido) < 9999 || Integer.parseInt(codigoIntroducido) > 999999 );
     }
 }
