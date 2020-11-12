@@ -249,6 +249,7 @@ public class hotel_ciudad_martos {
                         TimeUnit.SECONDS.sleep(1);
                     }
                     System.out.println();
+                    System.out.println();
 
                     Calendar fechaSalida;
                     Calendar fechaActual;
@@ -301,12 +302,13 @@ public class hotel_ciudad_martos {
 
                     //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
                     precioHabitacion = ((codigoFinal.equals("2")) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
-                    System.out.println("Precio por dias ocupados: " + precioHabitacion);
+                    System.out.println("Precio por dias ocupados: " + precioHabitacion + "euros");
                     System.out.println();
 
                     //PEDIR SI DESEA FACTURA
                     System.out.println("Desea factura Si/No");
                     String obtenerFactura = s.nextLine();
+                    System.out.println();
                     String si = "si";
 
                     if (obtenerFactura.equalsIgnoreCase(si)) {
@@ -318,12 +320,14 @@ public class hotel_ciudad_martos {
                                 System.out.println("Parametro incorrecto");
                             }
                         } while (nombreCliente.isEmpty());
+                        System.out.println();
 
                         System.out.print("Generando factura ");
                         for (int i = 0; i < 3; i++) {
                             System.out.print(".");
                             TimeUnit.SECONDS.sleep(1);
                         }
+                        System.out.println();
                         System.out.println();
 
                         //GENERAR FACTURA
@@ -361,6 +365,7 @@ public class hotel_ciudad_martos {
                             System.out.printf("|    IVA:              %20.2f  |\n", iva);
                             System.out.printf("|    Total:              %18d  |\n", total);
                             System.out.println("|============================================|");
+                            System.out.println("|====        GRACIAS POR SU VISITA      =====|");
                             ingresoTotal += total;
                         }
                         System.out.println();
@@ -458,7 +463,7 @@ public class hotel_ciudad_martos {
                             de1 = 0;
                         }
 
-                        System.out.println("Tu cambio es de: " + cambio);
+                        System.out.println("Tu cambio es de: " + cambio + "euros");
                         if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
                         if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
                         if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " + resultado20);
@@ -466,6 +471,9 @@ public class hotel_ciudad_martos {
                         if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " + resultado5);
                         if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
                         if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
+                        System.out.println();
+                        System.out.println("|====        GRACIAS POR SU VISITA      =====|");
+                        System.out.println();
                         System.out.println("Pulsa una tecla para continuar . . . ");
                         s.nextLine();
                     } else {
@@ -564,7 +572,7 @@ public class hotel_ciudad_martos {
 
                         ingresoTotal += precioHabitacion;
 
-                        System.out.println("Tu cambio es de: " + cambio);
+                        System.out.println("Tu cambio es de: " + cambio + "euros");
                         if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
                         if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
                         if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " + resultado20);
@@ -572,6 +580,9 @@ public class hotel_ciudad_martos {
                         if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " + resultado5);
                         if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
                         if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
+                        System.out.println();
+                        System.out.println("|====        GRACIAS POR SU VISITA      =====|");
+                        System.out.println();
                         System.out.println("Pulsa una tecla para continuar . . . ");
                         s.nextLine();
                     }
@@ -635,7 +646,7 @@ public class hotel_ciudad_martos {
                             paseAdmi = true;
                         else System.out.println("Indica las opciones que se encuentran en el menú");
                     } while (!paseAdmi);
-
+                    System.out.println();
 
                     // Ingresos y reseravas totales.
                     if (opcionAdmin.equals("1")) {
@@ -644,6 +655,7 @@ public class hotel_ciudad_martos {
                         System.out.println("Pulsa una tecla para continuar");
                         s.nextLine();
                     }
+                    System.out.println();
 
                     //Consultar cambio
                     if (opcionAdmin.equals("2")) {
@@ -652,6 +664,7 @@ public class hotel_ciudad_martos {
                             System.out.print(".");
                             TimeUnit.SECONDS.sleep(1);
                         }
+                        System.out.println();
                         System.out.println();
 
                         System.out.println("Billetes y monedas restantes");
@@ -662,9 +675,11 @@ public class hotel_ciudad_martos {
                         System.out.println("Monedas de 5 es: " + de5);
                         System.out.println("Monedas de 2 es: " + de2);
                         System.out.println("Monedas de 1 es: " + de1);
+                        System.out.println();
                         System.out.println("Pulsa una tecla para continuar");
                         s.nextLine();
                     }
+                    System.out.println();
 
                     //Apagado del sistema
                     if (opcionAdmin.equals("3")) {
