@@ -302,7 +302,7 @@ public class hotel_ciudad_martos {
 
                     //MULTIPLICAR LOS DIAS POR EL COSTE DE LA HABITACION
                     precioHabitacion = ((codigoFinal.equals("2")) ? precioDoble * diferenciaFechas : precioindividual * diferenciaFechas);
-                    System.out.println("Precio por dias ocupados: " + precioHabitacion + "euros");
+                    System.out.println("Precio por dias ocupados: " + precioHabitacion + " euros");
                     System.out.println();
 
                     //PEDIR SI DESEA FACTURA
@@ -463,7 +463,7 @@ public class hotel_ciudad_martos {
                             de1 = 0;
                         }
 
-                        System.out.println("Tu cambio es de: " + cambio + "euros");
+                        System.out.println("Tu cambio es de: " + cambio + " euros");
                         if (billetes100 > 0) System.out.println("Cambio en billetes de 100 es: " + resultado100);
                         if (billetes50 > 0) System.out.println("Cambio en billetes de 50 es: " + resultado50);
                         if (billete20 > 0) System.out.println("Cambio en billetes de 20 es: " + resultado20);
@@ -580,7 +580,7 @@ public class hotel_ciudad_martos {
                         if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
                         if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
                         System.out.println();
-                        System.out.println("|===   *** GRACIAS POR SU VISITA ***     ====|");
+                        System.out.println("       *** GRACIAS POR SU VISITA ***          ");
                         System.out.println();
                         System.out.println("Pulsa una tecla para continuar . . . ");
                         s.nextLine();
