@@ -365,7 +365,7 @@ public class hotel_ciudad_martos {
                             System.out.printf("|    IVA:              %20.2f  |\n", iva);
                             System.out.printf("|    Total:              %18d  |\n", total);
                             System.out.println("|============================================|");
-                            System.out.println("|====        GRACIAS POR SU VISITA      =====|");
+                            System.out.println("|===   *** GRACIAS POR SU VISITA ***     ====|");
                             ingresoTotal += total;
                         }
                         System.out.println();
@@ -472,7 +472,6 @@ public class hotel_ciudad_martos {
                         if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
                         if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
                         System.out.println();
-                        System.out.println("|====        GRACIAS POR SU VISITA      =====|");
                         System.out.println();
                         System.out.println("Pulsa una tecla para continuar . . . ");
                         s.nextLine();
@@ -581,7 +580,7 @@ public class hotel_ciudad_martos {
                         if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " + resultado2);
                         if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " + resultado1);
                         System.out.println();
-                        System.out.println("|====        GRACIAS POR SU VISITA      =====|");
+                        System.out.println("|===   *** GRACIAS POR SU VISITA ***     ====|");
                         System.out.println();
                         System.out.println("Pulsa una tecla para continuar . . . ");
                         s.nextLine();
