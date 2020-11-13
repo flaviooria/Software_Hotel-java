@@ -22,6 +22,7 @@ public class hotel_ciudad_martos {
         String codigoHabitacion1 = " ", codigoHabitacion2 = " ", codigoHabitacion3 = " ", codigoHabitacion4 = "", codigoHabitacion5 = "", codigoHabitacion6 = "", codigoHabitacion7 = "", codigoHabitacion8 = "", codigoHabitacion9 = "", codigoHabitacion10 = "";
         boolean reserva1 = false, reserva2 = false, reserva3 = false, reserva4 = false, reserva5 = false, reserva6 = false, reserva7 = false, reserva8 = false, reserva9 = false, reserva10 = false;
         String codigoFinal = "";
+        String   nombre = "admin", clave = "admin";
 
         do {
             //Menu de Bienvenida
@@ -353,6 +354,7 @@ public class hotel_ciudad_martos {
                             System.out.printf("|    IVA:              %20.2f  |\n", iva);
                             System.out.printf("|    Total:              %18d  |\n", total);
                             System.out.println("|============================================|");
+                            System.out.println("|===   *** GRACIAS POR SU VISITA ***     ====|");
                             ingresoTotal += total;
                         } else {
                             total = precioHabitacion;
@@ -610,7 +612,7 @@ public class hotel_ciudad_martos {
                     pass = s.nextLine();
                     System.out.println();
 
-                    if (usuario.equals("flavio") && pass.equals("1234")) {
+                    if (usuario.equalsIgnoreCase(nombre) && pass.equalsIgnoreCase(clave)) {
                         logeado = true;
                     } else {
                         System.out.println("Intento número: " + contador + " de 3");
