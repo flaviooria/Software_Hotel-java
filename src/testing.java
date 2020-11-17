@@ -177,12 +177,12 @@ public class testing {
             if (monedas5 > 0) System.out.println("Cambio en billetes de 5 es: " +  resultado5);
             if (monedas2 > 0) System.out.println("Cambio en monedas de 2 es: " +  resultado2);
             if (monedas1 > 0) System.out.println("Cambio en monedas de 1 es: " +  resultado1);*/
-
+/*
         String codigoIntroducido = "";
 
         do {
             System.out.println("Indique su codigo de habitación");
             codigoIntroducido = s.nextLine();
-        } while (Integer.parseInt(codigoIntroducido) < 9999 || Integer.parseInt(codigoIntroducido) > 999999 );
+        } while (Integer.parseInt(codigoIntroducido) < 9999 || Integer.parseInt(codigoIntroducido) > 999999 );*/
     }
 }

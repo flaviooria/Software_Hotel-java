@@ -265,7 +265,7 @@ public class hotel_ciudad_martos {
                             anio = Integer.parseInt(s.nextLine());
 
                             //comprobando si el dia y el mes son correctos.
-                            if (dia > 31 || mes > 12 || mes == 0) {
+                            if ((dia > 31 || dia < 1) || (mes > 12 || mes < 1)) {
                                 System.out.println("Parametro incorrecto, coloca el día y el mes correcto");
                             } else {
                                 diaOk = true;
@@ -306,14 +306,14 @@ public class hotel_ciudad_martos {
                     System.out.println("Precio por dias ocupados: " + precioHabitacion + " euros");
                     System.out.println();
 
-                    //PEDIR SI DESEA FACTURA
+                    //FACTURA
                     System.out.println("Desea factura Si/No");
                     String obtenerFactura = s.nextLine();
                     System.out.println();
                     String si = "si";
 
                     if (obtenerFactura.equalsIgnoreCase(si)) {
-                        //PEDIR NOMBRE COMPLETO DEL CLIENTE
+                        //DATOS CLIENTE
                         do {
                             System.out.println("Indique su nombre completo, por favor");
                             nombreCliente = s.nextLine();
@@ -342,7 +342,7 @@ public class hotel_ciudad_martos {
                         System.out.printf("|    Pax:             %21d  |\n", reserva);
                         System.out.printf("|    Noches:             %18d  |\n", diferenciaFechas);
                         System.out.println("|============================================|");
-                        // comprobando si el numero de reserva es doble o individual de ese modo el precio varia
+                        // comprobando si el numero de reserva es doble o individual
                         if (reserva == 2) {
                             total = precioHabitacion;
                             monto = (float) (precioHabitacion * 0.79);
@@ -376,13 +376,14 @@ public class hotel_ciudad_martos {
                         do {
                             System.out.println("Ingresa la cantidad con la cual va a pagar: ");
                             pagoCliente = Integer.parseInt(s.nextLine());
-                            if (pagoCliente < 0 )
+                            if (pagoCliente < 0 || pagoCliente < precioHabitacion)
                                 System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
-                        } while (pagoCliente < 0 );
+                        } while (pagoCliente < 0 || pagoCliente < precioHabitacion);
 
                         pago = pagoCliente - precioHabitacion;
                         cambio = pago;
 
+                        //EFECTUO CAMBIO
                         int billetes100, billetes50, billete20, billete10, monedas5, monedas2, monedas1;
                         int resultado100, resultado50, resultado20, resultado10, resultado5, resultado2, resultado1;
 
@@ -482,9 +483,9 @@ public class hotel_ciudad_martos {
                         do {
                             System.out.println("Ingresa la cantidad con la cual va a pagar: ");
                             pagoCliente = Integer.parseInt(s.nextLine());
-                            if (pagoCliente < 0 )
+                            if (pagoCliente < 0 || pagoCliente < precioHabitacion)
                                 System.out.println("Parametro incorrecto, vuelve a introducir la cantidad");
-                        } while (pagoCliente < 0 );
+                        } while (pagoCliente < 0 || pagoCliente < precioHabitacion);
 
                         pago = pagoCliente - precioHabitacion;
                         cambio = pago;
